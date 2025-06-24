@@ -14,6 +14,8 @@ import Reminders from "./pages/Reminders";
 function App() {
   return (
     <div>
+      <NavBar />
+      <SideBar />
       <Routes>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
