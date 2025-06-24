@@ -6,7 +6,7 @@ import AccountPage from "./pages/accountPage";
 import SignupPage from "./pages/signupPage";
 import LoginPage from "./pages/loginPage";
 import SettingsPage from "./pages/settingsPage";
-import HomePage from "../../../Bubbly/bubbly-front/src/pages/HomePage";
+import HomePage from "./pages/HomePage";
 
 function App() {
   return (
