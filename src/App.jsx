@@ -1,5 +1,43 @@
+import { Navigate, Route, Routes } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
+import ForgotPasswordPage from "./pages/forgotPasswordPage";
+import ResetPasswordPage from "./pages/ResetPasswordPage";
+import AccountPage from "./pages/accountPage";
+import SignupPage from "./pages/signupPage";
+import LoginPage from "./pages/loginPage";
+import SettingsPage from "./pages/settingsPage";
+import HomePage from "../../../Bubbly/bubbly-front/src/pages/HomePage";
+
 function App() {
-  return <div className="bg-amber-500">app</div>;
+  return (
+    <div className="bg-amber-500">
+      <Routes>
+        <Route path="/" element={<Navigate to="/home" />} />
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/settings" element={<SettingsPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignupPage />} />
+        <Route path="/forgotPassword" element={<ForgotPasswordPage />} />
+        <Route path="/resetPassword/:token" element={<ResetPasswordPage />} />
+        <Route path="/account" element={<AccountPage />} />
+        <Route path="*" element={<div>404 Not Found</div>} />
+      </Routes>
+
+      <Toaster
+        toastOptions={{
+          duration: 3000,
+          style: {
+            background: "#605dff",
+            color: "#fff",
+            borderRadius: "8px",
+            padding: "16px",
+            fontSize: "14px",
+          },
+        }}
+        limit={1}
+      />
+    </div>
+  );
 }
 
 export default App;
