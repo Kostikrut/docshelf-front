@@ -7,18 +7,22 @@ import SignupPage from "./pages/signupPage";
 import LoginPage from "./pages/loginPage";
 import SettingsPage from "./pages/settingsPage";
 import HomePage from "./pages/HomePage";
+import Dashboard from "./pages/Dashboard";
+import Reminders from "./pages/Reminders";
 
 function App() {
   return (
     <div className="bg-amber-500">
       <Routes>
-        <Route path="/" element={<Navigate to="/home" />} />
-        <Route path="/home" element={<HomePage />} />
-        <Route path="/settings" element={<SettingsPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/forgotPassword" element={<ForgotPasswordPage />} />
         <Route path="/resetPassword/:token" element={<ResetPasswordPage />} />
+        <Route path="/" element={<Navigate to="/home" />} />
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/reminders" element={<Reminders />} />
+        <Route path="/settings" element={<SettingsPage />} />
         <Route path="/account" element={<AccountPage />} />
         <Route path="*" element={<div>404 Not Found</div>} />
       </Routes>
