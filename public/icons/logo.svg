@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg fill="none" height="60" viewBox="0 0 250 60" width="250" xmlns="http://www.w3.org/2000/svg">
+<!-- Stack of pages -->
+<rect fill="none" height="30" stroke="#0d1441" stroke-width="2" width="24" x="10" y="15"/>
+<rect fill="none" height="30" stroke="#0d1441" stroke-width="1.5" width="24" x="14" y="12"/>
+<rect fill="none" height="30" stroke="#0d1441" stroke-width="1" width="24" x="18" y="9"/>
+<!-- Text "DocShelf" -->
+<text fill="#0d1441" font-family="Montserrat, sans-serif" font-size="28" font-weight="700" x="60" y="40">
+    DocShelf
+  </text>
+</svg>

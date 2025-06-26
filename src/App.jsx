@@ -1,34 +1,49 @@
+import { useState } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 
-import ForgotPasswordPage from "./pages/forgotPasswordPage";
-import ResetPasswordPage from "./pages/ResetPasswordPage";
-import AccountPage from "./pages/accountPage";
-import SignupPage from "./pages/signupPage";
-import LoginPage from "./pages/loginPage";
-import SettingsPage from "./pages/settingsPage";
+import ForgotPassword from "./pages/forgotPasswordPage";
+import ResetPassword from "./pages/ResetPasswordPage";
+import Account from "./pages/accountPage";
+import Signup from "./pages/signupPage";
+import Login from "./pages/loginPage";
+import Settings from "./pages/settingsPage";
 import HomePage from "./pages/HomePage";
-import Dashboard from "./pages/Dashboard";
-import Reminders from "./pages/Reminders";
+import Dashboard from "./pages/DashboardPage";
+import Reminders from "./pages/RemindersPage";
+import FileSystem from "./pages/FileSystemPage";
+
+import NavBar from "./components/NavBar";
+import SideBar from "./components/Sidebar";
 
 function App() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+
+  const toggleSidebar = () => setIsSidebarOpen((prev) => !prev);
+
   return (
-    <div>
-      <NavBar />
-      <SideBar />
-      <Routes>
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/signup" element={<SignupPage />} />
-        <Route path="/forgotPassword" element={<ForgotPasswordPage />} />
-        <Route path="/resetPassword/:token" element={<ResetPasswordPage />} />
-        <Route path="/" element={<Navigate to="/home" />} />
-        <Route path="/home" element={<HomePage />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/reminders" element={<Reminders />} />
-        <Route path="/settings" element={<SettingsPage />} />
-        <Route path="/account" element={<AccountPage />} />
-        <Route path="*" element={<div>404 Not Found</div>} />
-      </Routes>
+    <div className="flex h-screen overflow-hidden">
+      <SideBar collapsed={!isSidebarOpen} />
+
+      <div className="flex flex-col flex-1 overflow-hidden">
+        <NavBar toggleSidebar={toggleSidebar} />
+        <div className="flex-1 overflow-y-auto">
+          <Routes>
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/forgotPassword" element={<ForgotPassword />} />
+            <Route path="/resetPassword/:token" element={<ResetPassword />} />
+            <Route path="/" element={<Navigate to="/home" />} />
+            <Route path="/home" element={<HomePage />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/reminders" element={<Reminders />} />
+            <Route path="/file-system" element={<FileSystem />} />
+            <Route path="/settings" element={<Settings />} />
+            <Route path="/account" element={<Account />} />
+            <Route path="*" element={<div>404 Not Found</div>} />
+          </Routes>
+        </div>
+      </div>
 
       <Toaster
         toastOptions={{
