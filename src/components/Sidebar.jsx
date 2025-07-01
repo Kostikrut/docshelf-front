@@ -1,8 +1,14 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 function Sidebar({ collapsed }) {
-  const [selected, setSelected] = useState("home");
+  const location = useLocation();
+  const [selected, setSelected] = useState(null);
+
+  useEffect(() => {
+    const currentPath = location.pathname.split("/")[1];
+    setSelected(currentPath || "home");
+  }, [location]);
 
   const navLinks = [
     {
@@ -49,7 +55,7 @@ function Sidebar({ collapsed }) {
       }`}
     >
       <div className="flex flex-col justify-between h-full">
-        <div className="flex flex-col items-start w-full pt-8 pl-5">
+        <div className="flex flex-col items-start w-full pt-6 pl-5">
           {navLinks.map((link) => {
             const isActive = selected === link.id;
 
